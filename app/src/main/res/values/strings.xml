@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Repository</string>
+    <string name="api_domain">https://ghapi.huchen.dev/</string>
+    <string name="toolbar_title">Trending Repositories</string>
+    <string name="action_search">Search</string>
+    <string name="database_name">TrendingRepoDataBase</string>
+</resources>

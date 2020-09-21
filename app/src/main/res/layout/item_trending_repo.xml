@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:id="@+id/repo_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@drawable/ic_star"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="4dp"
+                tools:tint="@color/color_black" />
+
+            <TextView
+                android:id="@+id/repo_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/repo_icon"
+                android:textSize="@dimen/medium_size"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                tools:text="square" />
+
+            <TextView
+                android:id="@+id/repo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/repo_author"
+                android:textSize="@dimen/medium_size"
+                android:layout_marginTop="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="1dp"
+                tools:text="bionic" />
+
+            <TextView
+                android:id="@+id/repo_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/repo_name"
+                android:textSize="@dimen/large_size"
+                android:layout_marginTop="1dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="1dp"
+                tools:text="A python framework for data science" />
+
+            <TextView
+                android:id="@+id/repo_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/repo_desc"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                tools:drawableStart="@drawable/custom_drawable"
+                tools:drawableTint="@color/color_black"
+                android:drawablePadding="10dp"
+                android:padding="5dp"
+                tools:text="Python" />
+
+            <TextView
+                android:id="@+id/repo_stars_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/repo_desc"
+                android:layout_alignParentEnd="true"
+                android:textSize="@dimen/medium_size"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                tools:text="46"
+                android:padding="5dp"
+                app:drawableStartCompat="@drawable/ic_star" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/root"
+            android:layout_marginTop="5dp"
+            android:background="@color/color_bg_view"/>
+
+    </RelativeLayout>
+</layout>
