@@ -3,8 +3,23 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/color_white</item>
-        <item name="colorPrimaryDark">@color/color_white</item>
+        <item name="colorPrimaryDark">@color/color_black</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="searchViewStyle">@style/searchView</item>
+    </style>
+
+    <style name="searchView" parent="Widget.AppCompat.SearchView.ActionBar">
+        <item name="collapseIcon">@drawable/ic_back</item>
+        <item name="android:collapseIcon">@drawable/ic_back</item>
+        <item name="android:searchIcon">@drawable/ic_search</item>
+        <item name="searchIcon">@drawable/ic_search</item>
+    </style>
+
+    <style name="progress_style" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:progressTint">@color/blue</item>
+        <item name="android:indeterminateTint">@color/blue</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateTintMode">src_atop</item>
     </style>
 
 </resources>

@@ -3,30 +3,86 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/color_bg_view">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                app:title="@string/toolbar_title"
-                app:collapseIcon="@drawable/ic_back"
                 android:background="@color/color_white"
-                app:titleTextColor="@color/color_black"/>
+                app:collapseIcon="@drawable/ic_back"
+                app:title="@string/toolbar_title"
+                app:titleTextColor="@color/color_black" />
+
+            <TextView
+                android:id="@+id/network_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:background="@color/color_white"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="2dp"
+                android:textSize="@dimen/large_size"
+                android:textStyle="bold"
+                tools:text="offline" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/repo_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@+id/network_status"
                 android:background="@color/color_white"
-                tools:listitem="@layout/item_trending_repo"
+                android:visibility="visible"
                 tools:itemCount="5"
-                android:layout_below="@+id/toolbar"/>
+                tools:listitem="@layout/item_trending_repo" />
+
+            <TextView
+                android:id="@+id/no_internet_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/try_again"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="@string/no_network_connection"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/extra_large_size"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/try_again"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/txt_bg"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:text="@string/text_try_again"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/extra_large_size"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/progress_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="gone"
+                tools:visibility="gone" />
 
         </RelativeLayout>
 

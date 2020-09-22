@@ -2,18 +2,16 @@ package com.repository.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.repository.localdatabase.ListTypeConverter
 
 @Entity(tableName = "TrendingRepo")
 data class TrendingRepo(
 
-    @ColumnInfo(name = "id")
-    @PrimaryKey(autoGenerate = true)
-    var id: Long,
-
+    @PrimaryKey
     @SerializedName("author")
     @ColumnInfo(name = "author")
     @Expose
@@ -62,10 +60,10 @@ data class TrendingRepo(
     @SerializedName("currentPeriodStars")
     @ColumnInfo(name = "currentPeriodStars")
     @Expose
-    var currentPeriodStars: Long
-) {
+    var currentPeriodStars: Long,
+
     @SerializedName("builtBy")
     @ColumnInfo(name = "builtBy")
-    @Ignore
-    var builtBy: List<BuildBy>? = null
-}
+    @Expose
+    var builtBy: List<BuildBy>
+)

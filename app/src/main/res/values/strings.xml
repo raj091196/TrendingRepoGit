@@ -4,4 +4,6 @@
     <string name="toolbar_title">Trending Repositories</string>
     <string name="action_search">Search</string>
     <string name="database_name">TrendingRepoDataBase</string>
+    <string name="text_try_again">Try Again</string>
+    <string name="no_network_connection">No network connection</string>
 </resources>

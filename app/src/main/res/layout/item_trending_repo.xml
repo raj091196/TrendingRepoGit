@@ -8,7 +8,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/root"
+            android:id="@+id/rootView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -44,6 +44,8 @@
                 android:layout_marginTop="5dp"
                 android:paddingStart="5dp"
                 android:paddingEnd="1dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_black"
                 tools:text="bionic" />
 
             <TextView
@@ -55,6 +57,7 @@
                 android:layout_marginTop="1dp"
                 android:paddingStart="5dp"
                 android:paddingEnd="1dp"
+                android:textColor="@color/dim_gray"
                 tools:text="A python framework for data science" />
 
             <TextView
@@ -67,6 +70,7 @@
                 tools:drawableStart="@drawable/custom_drawable"
                 tools:drawableTint="@color/color_black"
                 android:drawablePadding="10dp"
+                android:textColor="@color/color__gray"
                 android:padding="5dp"
                 tools:text="Python" />
 
@@ -87,7 +91,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_below="@+id/root"
+            android:layout_below="@+id/rootView"
             android:layout_marginTop="5dp"
             android:background="@color/color_bg_view"/>
 

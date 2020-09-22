@@ -1,13 +1,15 @@
 package com.repository.di.modules
 
 import com.repository.Application
-import com.repository.CustomDrawable
+import com.repository.Utils
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class ViewsModule {
 
     @Provides
-    fun provideCustomDrawable(application: Application) = CustomDrawable(application)
+    @Singleton
+    fun provideCustomDrawable(application: Application) = Utils(application)
 }

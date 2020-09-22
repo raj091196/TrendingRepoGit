@@ -10,6 +10,9 @@ import dagger.Provides
 import javax.inject.Named
 import javax.inject.Singleton
 
+/**
+ * DI Module for the Room Database Related Objects
+ */
 @Module
 class RoomDBModule {
 
@@ -18,6 +21,9 @@ class RoomDBModule {
     fun provideDatabaseName(application: Application) =
         application.getString(R.string.database_name)
 
+    /**
+     * provides the Room database Instance
+     */
     @Provides
     @Singleton
     fun provideRoomDatabase(
@@ -31,6 +37,9 @@ class RoomDBModule {
         ).build()
     }
 
+    /**
+     * provides the Room database Trending Dao Instance
+     */
     @Provides
     fun provideTrendingDao(dataBase: RoomDataBase): TrendingDao =
         dataBase.trendingRepoDao()

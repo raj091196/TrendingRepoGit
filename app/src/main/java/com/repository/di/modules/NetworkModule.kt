@@ -3,6 +3,7 @@ package com.repository.di.modules
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.repository.Application
+import com.repository.BuildConfig
 import com.repository.R
 import com.repository.repository.ApiClient
 import dagger.Module
@@ -11,6 +12,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -44,9 +46,11 @@ class NetworkModule {
         interceptor: HttpLoggingInterceptor,
         builder: OkHttpClient.Builder
     ): OkHttpClient {
-        return builder.addInterceptor(interceptor)
-            .followRedirects(false)
-            .build()
+        if (BuildConfig.DEBUG) builder.addInterceptor(interceptor)
+        return builder.connectTimeout(20, TimeUnit.SECONDS)
+            .writeTimeout(20, TimeUnit.SECONDS)
+            .readTimeout(20, TimeUnit.SECONDS)
+            .followRedirects(false).build()
     }
 
     @Provides
