@@ -51,8 +51,8 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
         inject()
         super.onCreate(savedInstanceState)
         setContentView()
-        viewModel = createViewModel(viewModel(), viewModelFactory())
         initViews()
+        viewModel = createViewModel(viewModel(), viewModelFactory())
         initObservers()
     }
 
