@@ -52,8 +52,8 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView()
         viewModel = createViewModel(viewModel(), viewModelFactory())
-        initObservers()
         initViews()
+        initObservers()
     }
 
     override fun onStart() {
