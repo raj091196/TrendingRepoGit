@@ -9,6 +9,11 @@ import kotlinx.coroutines.withContext
 import retrofit2.Response
 import javax.inject.Inject
 
+/**
+ *  @param apiClient instance Injected by the dagger Component
+ *  Single Responsible Data source to handle remote calls
+ *  To communicate with the apiClient to get data from the api
+ */
 class TrendingRepoRemoteDataSource @Inject constructor(private val apiClient: ApiClient) {
 
     private var trendingRepoRequest: TrendingRepoRequest = TrendingRepoRequest()

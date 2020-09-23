@@ -45,6 +45,7 @@
                 android:paddingStart="5dp"
                 android:paddingEnd="1dp"
                 android:textStyle="bold"
+                android:gravity="center_vertical"
                 android:textColor="@color/color_black"
                 tools:text="bionic" />
 
@@ -57,6 +58,8 @@
                 android:layout_marginTop="1dp"
                 android:paddingStart="5dp"
                 android:paddingEnd="1dp"
+                android:lineSpacingExtra="4dp"
+                android:gravity="center_vertical"
                 android:textColor="@color/dim_gray"
                 tools:text="A python framework for data science" />
 
@@ -72,6 +75,7 @@
                 android:drawablePadding="10dp"
                 android:textColor="@color/color__gray"
                 android:padding="5dp"
+                android:gravity="center_vertical"
                 tools:text="Python" />
 
             <TextView
@@ -85,6 +89,7 @@
                 android:drawablePadding="10dp"
                 tools:text="46"
                 android:padding="5dp"
+                android:gravity="center_vertical"
                 app:drawableStartCompat="@drawable/ic_star" />
         </RelativeLayout>
 

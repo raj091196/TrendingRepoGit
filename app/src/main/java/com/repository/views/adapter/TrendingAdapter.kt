@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.repository.GlideApp
+import com.repository.GlideAppImpl
 import com.repository.R
 import com.repository.Utils
 import com.repository.databinding.ItemTrendingRepoBinding
@@ -34,7 +34,7 @@ class TrendingAdapter constructor(val utils: Utils, var list: ArrayList<Trending
     override fun hasSearchKey(value: TrendingRepo, filterKey: String): Boolean {
         return value.author.containsIgnoreCase(filterKey) || value.name.containsIgnoreCase(filterKey) || value.language.containsIgnoreCase(
             filterKey
-        )
+        ) || value.description.containsIgnoreCase(filterKey)
     }
 
     inner class TrendingViewHolder(private val binding: ItemTrendingRepoBinding) :
@@ -46,7 +46,7 @@ class TrendingAdapter constructor(val utils: Utils, var list: ArrayList<Trending
             binding.repoDesc.text = trendingRepo.description
             binding.repoLanguage.text = trendingRepo.language
             binding.repoStarsCount.text = trendingRepo.stars.toString()
-            GlideApp.loadImage(
+            GlideAppImpl.loadImage(
                 binding.root.context,
                 trendingRepo.avatar,
                 binding.repoIcon,

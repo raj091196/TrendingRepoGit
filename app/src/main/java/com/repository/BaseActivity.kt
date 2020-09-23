@@ -58,6 +58,7 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        @Suppress("DEPRECATION")
         registerReceiver(
             networkStateReceiver,
             IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)

@@ -1,6 +1,5 @@
 package com.repository.views.adapter
 
-import android.os.Parcelable
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
  *  @param T type of the recycler view data
  *  @param VH View holder for the recycler View
  */
-abstract class BaseSearchAdapter<T, VH : RecyclerView.ViewHolder?>(private var data: ArrayList<T>) :
+abstract class BaseSearchAdapter<T, VH : RecyclerView.ViewHolder?>(data: ArrayList<T>) :
     RecyclerView.Adapter<VH>(), Filterable {
 
     private var wholeList: List<T> = ArrayList()
@@ -18,12 +17,15 @@ abstract class BaseSearchAdapter<T, VH : RecyclerView.ViewHolder?>(private var d
     private var searchList: List<T> = ArrayList()
 
     /**
-     *  @param VH viewHolder instance
+     *  @return viewHolder instance
      *  create the ViewHolder
      */
     abstract fun initViewHolder(parent: ViewGroup, viewType: Int): VH
 
     /**
+     *  @param holder view Holder
+     *  @param position viewHolder position
+     *  @param data viewHolder position data
      *  bind the viewHolder to the Recycler View
      */
     abstract fun bindViewHolderData(holder: VH, position: Int, data: T)
@@ -81,6 +83,7 @@ abstract class BaseSearchAdapter<T, VH : RecyclerView.ViewHolder?>(private var d
 
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
                 p1?.let {
+                    @Suppress("UNCHECKED_CAST")
                     searchList = ArrayList(p1.values as ArrayList<T>)
                     notifyDataSetChanged()
                 }

@@ -5,12 +5,10 @@ import android.os.Parcelable
 import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.repository.BaseActivity
 import com.repository.R
-import com.repository.Utils
 import com.repository.databinding.TrendingRepoActivityBinding
 import com.repository.di.viewmodelfactory.CreateViewModelFactory
 import com.repository.extension.debugLog
@@ -56,8 +54,8 @@ class TrendingRepoActivity : BaseActivity<TrendingActivityViewModel>() {
     override fun initViews() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.toolbar_title)
-        supportActionBar?.setDisplayHomeAsUpEnabled(false);
-        adapter = TrendingAdapter(utils,ArrayList())
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        adapter = TrendingAdapter(utils, ArrayList())
         binding.repoRecyclerView.adapter = adapter
         binding.repoRecyclerView.layoutManager = LinearLayoutManager(this)
         setNetworkTextColor(utils.hasInternet())
@@ -81,18 +79,18 @@ class TrendingRepoActivity : BaseActivity<TrendingActivityViewModel>() {
     }
 
     override fun initObservers() {
-        viewModel?.trendingRepo?.observe(this, {
+        viewModel?.mTrendingRepo?.observe(this, {
             setAdapterData(it)
             binding.noInternetMsg.visibility(it.isNullOrEmpty())
             binding.tryAgain.visibility(it.isNullOrEmpty())
             binding.repoRecyclerView.visibility(!it.isNullOrEmpty())
         })
 
-        viewModel?.networkStatus?.observe(this, {
+        viewModel?.mNetworkStatus?.observe(this, {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         })
 
-        viewModel?.showProgress?.observe(this, {
+        viewModel?.mShowProgress?.observe(this, {
             binding.progressBar.visibility(it)
             binding.swipeLayout.isRefreshing = false
         })

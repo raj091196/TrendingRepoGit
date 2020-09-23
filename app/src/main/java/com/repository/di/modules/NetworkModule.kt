@@ -16,6 +16,9 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
+/**
+ * DI modules for the network calls
+ */
 @Module
 class NetworkModule {
 
@@ -66,6 +69,10 @@ class NetworkModule {
             .build()
     }
 
+    /**
+     *  @return ApiClient has the methods to make network calls
+     *  provides the Instance for the apiCalls
+     */
     @Provides
     @Singleton
     fun provideApiCalls(retrofit: Retrofit): ApiClient {
