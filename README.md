@@ -2,6 +2,12 @@
 
 Fetch the trending git repository from the git open api and manage it locally using room.
 
+Decisions :-
+1. Using Retrofit for getting api data.
+2. Using Room ORM to map the SQLite data to java/kotlin Objects.
+3. Using Dagger2 for dependency injection to provide loose coupling
+4. Using Glide for loading image from the URL
+
 Packages
 
 1. DI package - All Dagger DI related classes
